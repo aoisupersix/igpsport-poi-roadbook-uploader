@@ -1,17 +1,32 @@
 # igpsport_poi_roadbook_uploader
 
-A new Flutter project.
+![App icon](assets/images/app_icon.png)
 
-## Getting Started
+A Flutter app for creating and uploading roadbooks containing POIs (Points of
+Interest) for iGPSPORT cycling computers.
 
-This project is a starting point for a Flutter application.
+## How it works
 
-A few resources to get you started if this is your first Flutter project:
+The app signs in to iGPSPORT using HTTP sessions that mimic the browser and the
+official app, then:
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+1. Uploads a GPX route as a roadbook to the web upload endpoint
+2. Sets the roadbook's visibility via the service API (Bearer authentication)
+3. Registers POIs (auxiliary points) through the same API
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+> [!WARNING]
+> This app relies on iGPSPORT's **unofficial, undocumented web/service APIs**.
+> It may stop working without notice if those change. This is an unofficial app,
+> is not affiliated with iGPSPORT, and is used at your own risk.
+
+## Development
+
+Flutter is pinned via fvm (`.fvmrc`), so always run commands through `fvm`.
+
+```sh
+fvm flutter pub get                                  # fetch dependencies
+fvm dart run build_runner watch -d                   # code generation (watch)
+fvm flutter run                                       # run the app
+fvm flutter analyze                                   # static analysis
+fvm flutter test                                      # run tests
+```

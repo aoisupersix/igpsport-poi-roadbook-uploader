@@ -69,6 +69,15 @@ class Translations$appInfo$en {
 	/// en: 'An app for creating and uploading roadbooks with POIs for iGPSPORT cycling computers.'
 	String get appDescription => 'An app for creating and uploading roadbooks with POIs for iGPSPORT cycling computers.';
 
+	/// en: 'How it works'
+	String get howItWorksTitle => 'How it works';
+
+	/// en: 'It signs in with sessions that mimic the browser and official app, uploads your GPX route as a roadbook, then sets its visibility and registers POIs through the service API.'
+	String get howItWorks => 'It signs in with sessions that mimic the browser and official app, uploads your GPX route as a roadbook, then sets its visibility and registers POIs through the service API.';
+
+	/// en: 'This app relies on iGPSPORT's unofficial, undocumented web/service APIs. It may stop working without notice if those change. This is an unofficial app and is not affiliated with iGPSPORT.'
+	String get disclaimer => 'This app relies on iGPSPORT\'s unofficial, undocumented web/service APIs. It may stop working without notice if those change. This is an unofficial app and is not affiliated with iGPSPORT.';
+
 	/// en: 'Failed to get package information.'
 	String get failedToGetPackageInfo => 'Failed to get package information.';
 }
@@ -334,6 +343,9 @@ extension on Translations {
 			'appInfo.appVersion' => ({required String version}) => 'Version: ${version}',
 			'appInfo.appBuildNumber' => ({required String buildNumber}) => 'Build Number: ${buildNumber}',
 			'appInfo.appDescription' => 'An app for creating and uploading roadbooks with POIs for iGPSPORT cycling computers.',
+			'appInfo.howItWorksTitle' => 'How it works',
+			'appInfo.howItWorks' => 'It signs in with sessions that mimic the browser and official app, uploads your GPX route as a roadbook, then sets its visibility and registers POIs through the service API.',
+			'appInfo.disclaimer' => 'This app relies on iGPSPORT\'s unofficial, undocumented web/service APIs. It may stop working without notice if those change. This is an unofficial app and is not affiliated with iGPSPORT.',
 			'appInfo.failedToGetPackageInfo' => 'Failed to get package information.',
 			'common.appName' => 'iGPSPORT Roadbook Uploader',
 			'common.languageName' => 'English',
