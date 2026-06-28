@@ -16,7 +16,9 @@ class SecureStorageService {
   static final SecureStorageService _instance =
       SecureStorageService._internal();
 
-  static const FlutterSecureStorage _storage = FlutterSecureStorage();
+  static const FlutterSecureStorage _storage = FlutterSecureStorage(
+    aOptions: AndroidOptions(encryptedSharedPreferences: true),
+  );
 
   /// Key under which the iGPSPORT credentials are stored.
   static const String credentialsKey = 'igpsport_credentials';
