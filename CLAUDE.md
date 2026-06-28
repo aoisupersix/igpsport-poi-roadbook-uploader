@@ -100,6 +100,10 @@ After changing model or provider annotations, always regenerate before verifying
   format). When the project rule and the global rule conflict, the project rule
   wins.
 - Keep using Conventional Commits (`feat:`, `fix:`, `chore:`, `ci:`, `docs:`, ...).
+- Do not commit work directly to `master`. For every change, create a dedicated
+  branch and merge it into `master` through a pull request. The release workflow
+  builds its changelog from the PRs merged since the previous release, so each
+  unit of work must land as its own PR.
 
 ## Common Commands
 

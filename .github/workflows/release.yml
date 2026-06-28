@@ -50,6 +50,18 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      # Apply the pushed tag (e.g. v1.2.3) to pubspec.yaml so the built
+      # artifacts carry the released version. Use bash explicitly so the same
+      # step works on the Windows runner too.
+      - name: Set version from tag
+        shell: bash
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          echo "Setting pubspec version to ${version}+${GITHUB_RUN_NUMBER}"
+          sed -i.bak "s/^version:.*/version: ${version}+${GITHUB_RUN_NUMBER}/" pubspec.yaml
+          rm -f pubspec.yaml.bak
+          grep '^version:' pubspec.yaml
+
       - name: Generate code
         run: dart run build_runner build --delete-conflicting-outputs
 
@@ -123,30 +135,6 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ env.FLUTTER_VERSION }}
-          channel: stable
-          cache: true
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Extract release notes from CHANGELOG
-        # cider stores the changelog section under the full pubspec version
-        # (including the build number, e.g. 1.0.0+1), so resolve it via
-        # `cider version` rather than from the git tag.
-        run: |
-          version="$(dart run cider version)"
-          echo "Resolved version: $version"
-          dart run cider describe "$version" > RELEASE_NOTES.md
-          echo "----- release notes -----"
-          cat RELEASE_NOTES.md
-
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
@@ -156,6 +144,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          body_path: RELEASE_NOTES.md
+          # Let GitHub auto-generate the changelog from pull requests merged
+          # since the previous release (grouped by PR, not raw commits).
+          generate_release_notes: true
           files: dist/*
           fail_on_unmatched_files: true
