@@ -8,17 +8,17 @@ part of 'router.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// ルーティングを行う [GoRouter] のプロバイダ
+/// Provider for the [GoRouter] that handles routing.
 
 @ProviderFor(router)
 final routerProvider = RouterProvider._();
 
-/// ルーティングを行う [GoRouter] のプロバイダ
+/// Provider for the [GoRouter] that handles routing.
 
 final class RouterProvider
     extends $FunctionalProvider<GoRouter, GoRouter, GoRouter>
     with $Provider<GoRouter> {
-  /// ルーティングを行う [GoRouter] のプロバイダ
+  /// Provider for the [GoRouter] that handles routing.
   RouterProvider._()
     : super(
         from: null,
@@ -52,4 +52,4 @@ final class RouterProvider
   }
 }
 
-String _$routerHash() => r'16a99fbc737d2c1b7758b7b4ce0e81bb3c9ccbe6';
+String _$routerHash() => r'33faa04faa9f93c202d856d8b1af011826dae1f2';

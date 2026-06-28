@@ -44,6 +44,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$common$en common = Translations$common$en._(_root);
 	late final Translations$credentials$en credentials = Translations$credentials$en._(_root);
 	late final Translations$home$en home = Translations$home$en._(_root);
+	late final Translations$upload$en upload = Translations$upload$en._(_root);
 }
 
 // Path: appInfo
@@ -183,8 +184,53 @@ class Translations$home$en {
 	/// en: 'Edit Account'
 	String get editAccount => 'Edit Account';
 
+	/// en: 'Upload Roadbook'
+	String get uploadRoadbook => 'Upload Roadbook';
+
 	/// en: 'About App'
 	String get aboutApp => 'About App';
+}
+
+// Path: upload
+class Translations$upload$en {
+	Translations$upload$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Upload Roadbook'
+	String get title => 'Upload Roadbook';
+
+	/// en: 'Select GPX file'
+	String get pickGpxFile => 'Select GPX file';
+
+	/// en: 'Roadbook title'
+	String get roadbookTitle => 'Roadbook title';
+
+	/// en: 'Public'
+	String get public => 'Public';
+
+	/// en: 'Private'
+	String get private => 'Private';
+
+	/// en: 'Upload'
+	String get upload => 'Upload';
+
+	/// en: 'Logs'
+	String get logs => 'Logs';
+
+	/// en: 'Clear'
+	String get clearLogs => 'Clear';
+
+	/// en: 'Logs will appear here once an upload starts.'
+	String get logsEmpty => 'Logs will appear here once an upload starts.';
+
+	/// en: 'Upload completed successfully.'
+	String get resultSuccess => 'Upload completed successfully.';
+
+	/// en: 'Upload failed. Check the logs.'
+	String get resultFailure => 'Upload failed. Check the logs.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -229,7 +275,19 @@ extension on Translations {
 			'home.accountNotRegistered' => 'Not Registered',
 			'home.registerAccount' => 'Register Account',
 			'home.editAccount' => 'Edit Account',
+			'home.uploadRoadbook' => 'Upload Roadbook',
 			'home.aboutApp' => 'About App',
+			'upload.title' => 'Upload Roadbook',
+			'upload.pickGpxFile' => 'Select GPX file',
+			'upload.roadbookTitle' => 'Roadbook title',
+			'upload.public' => 'Public',
+			'upload.private' => 'Private',
+			'upload.upload' => 'Upload',
+			'upload.logs' => 'Logs',
+			'upload.clearLogs' => 'Clear',
+			'upload.logsEmpty' => 'Logs will appear here once an upload starts.',
+			'upload.resultSuccess' => 'Upload completed successfully.',
+			'upload.resultFailure' => 'Upload failed. Check the logs.',
 			_ => null,
 		};
 	}

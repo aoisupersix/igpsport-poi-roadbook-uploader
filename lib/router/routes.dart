@@ -4,6 +4,7 @@ import 'package:igpsport_poi_roadbook_uploader/common/components/root_navigation
 import 'package:igpsport_poi_roadbook_uploader/features/app_info/pages/app_info_page.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/credentials/pages/credentials_form_page.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/home/pages/home_page.dart';
+import 'package:igpsport_poi_roadbook_uploader/features/upload/pages/upload_page.dart';
 
 part 'routes.g.dart';
 
@@ -14,6 +15,7 @@ part 'routes.g.dart';
       routes: [
         TypedGoRoute<CredentialsFormRoute>(path: 'credentials'),
         TypedGoRoute<AppInfoRoute>(path: 'app_info'),
+        TypedGoRoute<UploadRoute>(path: 'upload'),
       ],
     ),
   ],
@@ -54,5 +56,15 @@ class AppInfoRoute extends GoRouteData with $AppInfoRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const AppInfoPage();
+  }
+}
+
+/// Roadbook upload page.
+class UploadRoute extends GoRouteData with $UploadRoute {
+  const UploadRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const UploadPage();
   }
 }

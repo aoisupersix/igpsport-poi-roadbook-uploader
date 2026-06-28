@@ -20,6 +20,7 @@ RouteBase get $rootRoute => ShellRouteData.$route(
           factory: $CredentialsFormRoute._fromState,
         ),
         GoRouteData.$route(path: 'app_info', factory: $AppInfoRoute._fromState),
+        GoRouteData.$route(path: 'upload', factory: $UploadRoute._fromState),
       ],
     ),
   ],
@@ -75,6 +76,26 @@ mixin $AppInfoRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/app_info');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin $UploadRoute on GoRouteData {
+  static UploadRoute _fromState(GoRouterState state) => const UploadRoute();
+
+  @override
+  String get location => GoRouteData.$location('/upload');
 
   @override
   void go(BuildContext context) => context.go(location);

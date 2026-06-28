@@ -8,25 +8,28 @@ part of 'igpsport_credentials.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 保存済みの iGPSPORT 認証情報を保持するプロバイダ。
+/// Provider that holds the saved iGPSPORT credentials.
 ///
-/// 初期値は起動時に [SecureStorageService] から読み込んだ値を
-/// [IgpsportCredentialsNotifier.fromModel] で注入する。未登録の場合は null。
+/// The initial value is injected via [IgpsportCredentialsNotifier.fromModel]
+/// with the value loaded from [SecureStorageService] at startup. It is null
+/// when no credentials are registered.
 
 @ProviderFor(IgpsportCredentialsNotifier)
 final igpsportCredentialsProvider = IgpsportCredentialsNotifierProvider._();
 
-/// 保存済みの iGPSPORT 認証情報を保持するプロバイダ。
+/// Provider that holds the saved iGPSPORT credentials.
 ///
-/// 初期値は起動時に [SecureStorageService] から読み込んだ値を
-/// [IgpsportCredentialsNotifier.fromModel] で注入する。未登録の場合は null。
+/// The initial value is injected via [IgpsportCredentialsNotifier.fromModel]
+/// with the value loaded from [SecureStorageService] at startup. It is null
+/// when no credentials are registered.
 final class IgpsportCredentialsNotifierProvider
     extends
         $NotifierProvider<IgpsportCredentialsNotifier, IgpsportCredentials?> {
-  /// 保存済みの iGPSPORT 認証情報を保持するプロバイダ。
+  /// Provider that holds the saved iGPSPORT credentials.
   ///
-  /// 初期値は起動時に [SecureStorageService] から読み込んだ値を
-  /// [IgpsportCredentialsNotifier.fromModel] で注入する。未登録の場合は null。
+  /// The initial value is injected via [IgpsportCredentialsNotifier.fromModel]
+  /// with the value loaded from [SecureStorageService] at startup. It is null
+  /// when no credentials are registered.
   IgpsportCredentialsNotifierProvider._()
     : super(
         from: null,
@@ -57,10 +60,11 @@ final class IgpsportCredentialsNotifierProvider
 String _$igpsportCredentialsNotifierHash() =>
     r'ff8223486661daf0daaef75e99f77d78aab5038c';
 
-/// 保存済みの iGPSPORT 認証情報を保持するプロバイダ。
+/// Provider that holds the saved iGPSPORT credentials.
 ///
-/// 初期値は起動時に [SecureStorageService] から読み込んだ値を
-/// [IgpsportCredentialsNotifier.fromModel] で注入する。未登録の場合は null。
+/// The initial value is injected via [IgpsportCredentialsNotifier.fromModel]
+/// with the value loaded from [SecureStorageService] at startup. It is null
+/// when no credentials are registered.
 
 abstract class _$IgpsportCredentialsNotifier
     extends $Notifier<IgpsportCredentials?> {

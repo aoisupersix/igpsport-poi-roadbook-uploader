@@ -41,6 +41,7 @@ class TranslationsJa with BaseTranslations<AppLocale, Translations> implements T
 	@override late final Translations$common$ja common = Translations$common$ja._(_root);
 	@override late final Translations$credentials$ja credentials = Translations$credentials$ja._(_root);
 	@override late final Translations$home$ja home = Translations$home$ja._(_root);
+	@override late final Translations$upload$ja upload = Translations$upload$ja._(_root);
 }
 
 // Path: appInfo
@@ -111,7 +112,28 @@ class Translations$home$ja implements Translations$home$en {
 	@override String get accountNotRegistered => '未登録';
 	@override String get registerAccount => 'アカウントを登録';
 	@override String get editAccount => 'アカウントを編集';
+	@override String get uploadRoadbook => 'ロードブックをアップロード';
 	@override String get aboutApp => 'アプリについて';
+}
+
+// Path: upload
+class Translations$upload$ja implements Translations$upload$en {
+	Translations$upload$ja._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'ロードブックのアップロード';
+	@override String get pickGpxFile => 'GPX ファイルを選択';
+	@override String get roadbookTitle => 'ロードブック名';
+	@override String get public => '公開';
+	@override String get private => '非公開';
+	@override String get upload => 'アップロード';
+	@override String get logs => 'ログ';
+	@override String get clearLogs => 'クリア';
+	@override String get logsEmpty => 'アップロードを開始するとここにログが表示されます。';
+	@override String get resultSuccess => 'アップロードが完了しました。';
+	@override String get resultFailure => 'アップロードに失敗しました。ログを確認してください。';
 }
 
 /// The flat map containing all translations for locale <ja>.
@@ -156,7 +178,19 @@ extension on TranslationsJa {
 			'home.accountNotRegistered' => '未登録',
 			'home.registerAccount' => 'アカウントを登録',
 			'home.editAccount' => 'アカウントを編集',
+			'home.uploadRoadbook' => 'ロードブックをアップロード',
 			'home.aboutApp' => 'アプリについて',
+			'upload.title' => 'ロードブックのアップロード',
+			'upload.pickGpxFile' => 'GPX ファイルを選択',
+			'upload.roadbookTitle' => 'ロードブック名',
+			'upload.public' => '公開',
+			'upload.private' => '非公開',
+			'upload.upload' => 'アップロード',
+			'upload.logs' => 'ログ',
+			'upload.clearLogs' => 'クリア',
+			'upload.logsEmpty' => 'アップロードを開始するとここにログが表示されます。',
+			'upload.resultSuccess' => 'アップロードが完了しました。',
+			'upload.resultFailure' => 'アップロードに失敗しました。ログを確認してください。',
 			_ => null,
 		};
 	}

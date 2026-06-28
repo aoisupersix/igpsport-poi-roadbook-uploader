@@ -54,6 +54,14 @@ class HomePage extends HookConsumerWidget {
               ),
               onPressed: () => const CredentialsFormRoute().push<void>(context),
             ),
+            const SizedBox(height: 8),
+            FilledButton.tonalIcon(
+              icon: const Icon(Icons.cloud_upload),
+              label: Text(t.home.uploadRoadbook),
+              onPressed: isRegistered
+                  ? () => const UploadRoute().push<void>(context)
+                  : null,
+            ),
           ],
         ),
       ),

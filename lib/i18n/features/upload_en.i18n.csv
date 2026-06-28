@@ -1,0 +1,12 @@
+"key",ja,en
+title,ロードブックのアップロード,Upload Roadbook
+pickGpxFile,GPX ファイルを選択,Select GPX file
+roadbookTitle,ロードブック名,Roadbook title
+public,公開,Public
+private,非公開,Private
+upload,アップロード,Upload
+logs,ログ,Logs
+clearLogs,クリア,Clear
+logsEmpty,アップロードを開始するとここにログが表示されます。,Logs will appear here once an upload starts.
+resultSuccess,アップロードが完了しました。,Upload completed successfully.
+resultFailure,アップロードに失敗しました。ログを確認してください。,Upload failed. Check the logs.
