@@ -1,0 +1,6 @@
+targets:
+  $default:
+    builders:
+      # slang は `dart run slang` (CLI) で生成するため build_runner では無効化する。
+      slang_build_runner:
+        enabled: false
