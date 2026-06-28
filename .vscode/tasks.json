@@ -12,7 +12,7 @@
     {
       "type": "dart",
       "command": "dart",
-      "args": ["run", "build_runner", "watch", "--delete-conflicting-outputs"],
+      "args": ["run", "build_runner", "watch"],
       "problemMatcher": ["$dart-build_runner"],
       "group": {
         "kind": "build"
@@ -40,7 +40,7 @@
     {
       "type": "dart",
       "command": "dart",
-      "args": ["run", "build_runner", "build", "--delete-conflicting-outputs"],
+      "args": ["run", "build_runner", "build"],
       "problemMatcher": ["$dart-build_runner"],
       "label": "dart: run build_runner",
       "group": {
