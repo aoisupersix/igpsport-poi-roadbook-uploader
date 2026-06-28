@@ -6,7 +6,9 @@ plugins {
 
 android {
     namespace = "tokyo.aoisupersix.igpsport_poi_roadbook_uploader"
-    compileSdk = flutter.compileSdkVersion
+    // Bumped from flutter.compileSdkVersion (34) because plugins such as
+    // flutter_plugin_android_lifecycle require compiling against API 36+.
+    compileSdk = 36
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

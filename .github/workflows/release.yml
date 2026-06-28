@@ -78,15 +78,23 @@ jobs:
             -C build/linux/x64/release/bundle .
 
       # --- macOS ---
-      - name: Build macOS
+      # No Apple Developer certificate is available in CI, so build an unsigned
+      # (ad-hoc) app via xcodebuild with code signing disabled. The committed
+      # project keeps its local automatic-signing settings untouched.
+      - name: Build macOS (unsigned)
         if: matrix.target == 'macos'
-        run: flutter build macos --release
+        run: |
+          flutter build macos --release --config-only
+          xcodebuild -workspace macos/Runner.xcworkspace -scheme Runner \
+            -configuration Release -derivedDataPath build/macos_unsigned \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            build
 
       - name: Package macOS
         if: matrix.target == 'macos'
         run: |
           mkdir -p dist
-          app_path=$(find build/macos/Build/Products/Release -maxdepth 1 -name '*.app' | head -n 1)
+          app_path=$(find build/macos_unsigned/Build/Products/Release -maxdepth 1 -name '*.app' | head -n 1)
           ditto -c -k --sequesterRsrc --keepParent "$app_path" \
             "dist/igpsport-poi-roadbook-uploader-${{ github.ref_name }}-macos.zip"
 
