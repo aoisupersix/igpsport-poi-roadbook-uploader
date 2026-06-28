@@ -35,6 +35,13 @@ class HomePage extends HookConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Text(
+                t.home.description,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ),
             Card(
               child: ListTile(
                 leading: Icon(

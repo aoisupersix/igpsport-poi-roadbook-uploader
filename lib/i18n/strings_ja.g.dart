@@ -108,6 +108,7 @@ class Translations$home$ja implements Translations$home$en {
 
 	// Translations
 	@override String get title => 'ホーム';
+	@override String get description => 'iGPSPORTのロードブックをPOI(Point of Interest)を含めてgpxファイルからアップロードします。';
 	@override String get accountSection => 'iGPSPORT アカウント';
 	@override String get accountRegistered => '登録済み';
 	@override String get accountNotRegistered => '未登録';
@@ -186,6 +187,7 @@ extension on TranslationsJa {
 			'credentials.deleteAccount' => '登録済みアカウントを削除',
 			'credentials.deleted' => 'アカウント情報を削除しました。',
 			'home.title' => 'ホーム',
+			'home.description' => 'iGPSPORTのロードブックをPOI(Point of Interest)を含めてgpxファイルからアップロードします。',
 			'home.accountSection' => 'iGPSPORT アカウント',
 			'home.accountRegistered' => '登録済み',
 			'home.accountNotRegistered' => '未登録',

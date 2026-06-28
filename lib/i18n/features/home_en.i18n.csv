@@ -1,5 +1,6 @@
 "key",ja,en
 title,ホーム,Home
+description,iGPSPORTのロードブックをPOI(Point of Interest)を含めてgpxファイルからアップロードします。,"Upload iGPSPORT roadbooks from GPX files, including POIs (Points of Interest)."
 accountSection,iGPSPORT アカウント,iGPSPORT Account
 accountRegistered,登録済み,Registered
 accountNotRegistered,未登録,Not Registered

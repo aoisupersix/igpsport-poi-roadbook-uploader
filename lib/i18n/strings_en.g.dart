@@ -170,6 +170,9 @@ class Translations$home$en {
 	/// en: 'Home'
 	String get title => 'Home';
 
+	/// en: 'Upload iGPSPORT roadbooks from GPX files, including POIs (Points of Interest).'
+	String get description => 'Upload iGPSPORT roadbooks from GPX files, including POIs (Points of Interest).';
+
 	/// en: 'iGPSPORT Account'
 	String get accountSection => 'iGPSPORT Account';
 
@@ -289,6 +292,7 @@ extension on Translations {
 			'credentials.deleteAccount' => 'Delete Saved Account',
 			'credentials.deleted' => 'Account information has been deleted.',
 			'home.title' => 'Home',
+			'home.description' => 'Upload iGPSPORT roadbooks from GPX files, including POIs (Points of Interest).',
 			'home.accountSection' => 'iGPSPORT Account',
 			'home.accountRegistered' => 'Registered',
 			'home.accountNotRegistered' => 'Not Registered',
