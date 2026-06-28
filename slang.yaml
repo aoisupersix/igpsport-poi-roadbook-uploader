@@ -1,0 +1,17 @@
+base_locale: en
+enum_name: AppLocale
+input_directory: lib/i18n
+input_file_pattern: .i18n.csv
+output_directory: lib/i18n
+output_file: i18n.g.dart
+namespaces: true
+pluarlization:
+  auto: false
+translate_var: i18n
+timestamp: false
+key_case: camel
+key_map_case: camel
+param_case: camel
+statistics: false
+locale_handling: true
+translation_class_visibility: public

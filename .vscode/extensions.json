@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "Dart-Code.flutter",
+    "Dart-Code.dart-code",
+    "luanpotter.dart-import",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "mechatroner.rainbow-csv",
+    "mathiasfrohlich.kotlin"
+  ]
+}

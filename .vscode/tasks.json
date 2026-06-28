@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dart: watch slang & build_runner",
+      "dependsOn": ["dart: watch slang", "dart: watch build_runner"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "dart",
+      "command": "dart",
+      "args": ["run", "build_runner", "watch", "--delete-conflicting-outputs"],
+      "problemMatcher": ["$dart-build_runner"],
+      "group": {
+        "kind": "build"
+      },
+      "label": "dart: watch build_runner"
+    },
+    {
+      "type": "dart",
+      "command": "dart",
+      "args": ["run", "slang", "watch"],
+      "label": "dart: watch slang",
+      "group": {
+        "kind": "build"
+      }
+    },
+    {
+      "type": "dart",
+      "command": "dart",
+      "args": ["run", "slang"],
+      "label": "dart: run slang",
+      "group": {
+        "kind": "build"
+      }
+    },
+    {
+      "type": "dart",
+      "command": "dart",
+      "args": ["run", "build_runner", "build", "--delete-conflicting-outputs"],
+      "problemMatcher": ["$dart-build_runner"],
+      "label": "dart: run build_runner",
+      "group": {
+        "kind": "build"
+      }
+    },
+    {
+      "type": "flutter",
+      "command": "flutter",
+      "args": ["pub", "run", "flutter_launcher_icons"],
+      "label": "flutter: gen-icons"
+    },
+    {
+      "type": "flutter",
+      "command": "flutter",
+      "args": ["build", "appbundle"],
+      "label": "flutter: appbundle"
+    }
+  ]
+}
