@@ -59,7 +59,7 @@ class Translations$appInfo$ja implements Translations$appInfo$en {
 	@override String get appDescription => 'iGPSPORT サイクルコンピュータ向けに POI を含むロードブックを作成・アップロードするアプリです。';
 	@override String get howItWorksTitle => '仕組み';
 	@override String get howItWorks => 'ブラウザや公式アプリを模したセッションで GPX ルートをロードブックとしてアップロードし、サービス API 経由で公開設定と POI を登録します。';
-	@override String get disclaimer => '本アプリは iGPSPORT が公式に公開していない非公式の Web/サービス API を利用しています。これらの仕様変更により予告なく動作しなくなる場合があります。本アプリは非公式であり、iGPSPORT 社とは関係ありません。';
+	@override String get disclaimer => '本アプリは iGPSPORT の公式 Web/サービス API（仕様が公開されていないもの）を利用しています。これらの仕様変更により予告なく動作しなくなる場合があります。本アプリは非公式のサードパーティ製であり、iGPSPORT 社とは関係ありません。';
 	@override String get failedToGetPackageInfo => 'パッケージ情報の取得に失敗しました。';
 }
 
@@ -196,7 +196,7 @@ extension on TranslationsJa {
 			'appInfo.appDescription' => 'iGPSPORT サイクルコンピュータ向けに POI を含むロードブックを作成・アップロードするアプリです。',
 			'appInfo.howItWorksTitle' => '仕組み',
 			'appInfo.howItWorks' => 'ブラウザや公式アプリを模したセッションで GPX ルートをロードブックとしてアップロードし、サービス API 経由で公開設定と POI を登録します。',
-			'appInfo.disclaimer' => '本アプリは iGPSPORT が公式に公開していない非公式の Web/サービス API を利用しています。これらの仕様変更により予告なく動作しなくなる場合があります。本アプリは非公式であり、iGPSPORT 社とは関係ありません。',
+			'appInfo.disclaimer' => '本アプリは iGPSPORT の公式 Web/サービス API（仕様が公開されていないもの）を利用しています。これらの仕様変更により予告なく動作しなくなる場合があります。本アプリは非公式のサードパーティ製であり、iGPSPORT 社とは関係ありません。',
 			'appInfo.failedToGetPackageInfo' => 'パッケージ情報の取得に失敗しました。',
 			'common.appName' => 'iGPSPORTロードブックアップローダー',
 			'common.languageName' => '日本語',

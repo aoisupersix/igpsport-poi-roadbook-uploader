@@ -5,5 +5,5 @@ appBuildNumber,ビルド番号: ${buildNumber: String},Build Number: ${buildNumb
 appDescription,iGPSPORT サイクルコンピュータ向けに POI を含むロードブックを作成・アップロードするアプリです。,An app for creating and uploading roadbooks with POIs for iGPSPORT cycling computers.
 howItWorksTitle,仕組み,How it works
 howItWorks,"ブラウザや公式アプリを模したセッションで GPX ルートをロードブックとしてアップロードし、サービス API 経由で公開設定と POI を登録します。","It signs in with sessions that mimic the browser and official app, uploads your GPX route as a roadbook, then sets its visibility and registers POIs through the service API."
-disclaimer,"本アプリは iGPSPORT が公式に公開していない非公式の Web/サービス API を利用しています。これらの仕様変更により予告なく動作しなくなる場合があります。本アプリは非公式であり、iGPSPORT 社とは関係ありません。","This app relies on iGPSPORT's unofficial, undocumented web/service APIs. It may stop working without notice if those change. This is an unofficial app and is not affiliated with iGPSPORT."
+disclaimer,"本アプリは iGPSPORT の公式 Web/サービス API（仕様が公開されていないもの）を利用しています。これらの仕様変更により予告なく動作しなくなる場合があります。本アプリは非公式のサードパーティ製であり、iGPSPORT 社とは関係ありません。","This app relies on iGPSPORT's official web/service APIs, whose specifications are not publicly documented. It may stop working without notice if those change. This is an unofficial, third-party app and is not affiliated with iGPSPORT."
 failedToGetPackageInfo,パッケージ情報の取得に失敗しました。,Failed to get package information.

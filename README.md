@@ -28,9 +28,10 @@ official app, then:
 3. Registers POIs (auxiliary points) through the same API
 
 > [!WARNING]
-> This app relies on iGPSPORT's **unofficial, undocumented web/service APIs**.
-> It may stop working without notice if those change. This is an unofficial app,
-> is not affiliated with iGPSPORT, and is used at your own risk.
+> This app relies on iGPSPORT's **official web/service APIs whose specifications
+> are not publicly documented**. It may stop working without notice if those
+> change. This is an unofficial, third-party app, is not affiliated with
+> iGPSPORT, and is used at your own risk.
 
 ## Development
 
@@ -43,3 +44,7 @@ fvm flutter run                                       # run the app
 fvm flutter analyze                                   # static analysis
 fvm flutter test                                      # run tests
 ```
+
+## License
+
+Released under the [MIT License](LICENSE.md).
