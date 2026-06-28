@@ -92,6 +92,15 @@ After changing model or provider annotations, always regenerate before verifying
 - Give meaningful names to variables and functions. Avoid `foo`, `bar`, `data`, etc.
 - Write comments, commit messages in English
 
+## Git / Commit Messages
+
+- **This project overrides the global rule.** The global `~/.claude/CLAUDE.md`
+  says commit bodies should be in Japanese, but in this repository **both the
+  commit subject and body MUST be written in English** (Conventional Commits
+  format). When the project rule and the global rule conflict, the project rule
+  wins.
+- Keep using Conventional Commits (`feat:`, `fix:`, `chore:`, `ci:`, `docs:`, ...).
+
 ## Common Commands
 
 ```sh
