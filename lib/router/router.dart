@@ -23,14 +23,13 @@ GoRouter router(Ref ref) {
     refreshListenable: refreshListenable,
     routes: $appRoutes,
     redirect: (context, state) {
-      final hasCredentials =
-          ref.read(igpsportCredentialsProvider) != null;
-      final isOnCredentialsPage =
-          state.matchedLocation == const CredentialsFormRoute().location;
+      final hasCredentials = ref.read(igpsportCredentialsProvider) != null;
+      // Only the upload flow requires credentials. Home, app info, settings,
+      // and the credentials form itself are reachable without them.
+      final requiresCredentials =
+          state.matchedLocation == const UploadRoute().location;
 
-      // Guide the user to the input page when credentials are not registered,
-      // such as on first launch.
-      if (!hasCredentials && !isOnCredentialsPage) {
+      if (!hasCredentials && requiresCredentials) {
         return const CredentialsFormRoute().location;
       }
       return null;

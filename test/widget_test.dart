@@ -1,18 +1,18 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:igpsport_poi_roadbook_uploader/features/credentials/pages/credentials_form_page.dart';
+import 'package:igpsport_poi_roadbook_uploader/features/home/pages/home_page.dart';
 import 'package:igpsport_poi_roadbook_uploader/i18n/strings.g.dart';
 import 'package:igpsport_poi_roadbook_uploader/main.dart';
 
 void main() {
-  testWidgets('redirects to the input page when no credentials are registered',
+  testWidgets('launches on the home page without forcing credential entry',
       (tester) async {
     await tester.pumpWidget(
       TranslationProvider(child: const ProviderScope(child: App())),
     );
     await tester.pumpAndSettle();
 
-    // In the initial state (no credentials) the credentials input page is shown.
-    expect(find.byType(CredentialsFormPage), findsOneWidget);
+    // Without credentials the app lands on home; only the upload flow is gated.
+    expect(find.byType(HomePage), findsOneWidget);
   });
 }
