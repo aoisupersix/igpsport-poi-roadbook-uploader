@@ -135,8 +135,8 @@ class Translations$credentials$en {
 	/// en: 'iGPSPORT Account'
 	String get title => 'iGPSPORT Account';
 
-	/// en: 'Enter your iGPSPORT email and password. Your information is stored securely on this device.'
-	String get description => 'Enter your iGPSPORT email and password. Your information is stored securely on this device.';
+	/// en: 'Enter your iGPSPORT email and password. The information you enter is stored on this device.'
+	String get description => 'Enter your iGPSPORT email and password. The information you enter is stored on this device.';
 
 	/// en: 'Email'
 	String get email => 'Email';
@@ -186,14 +186,14 @@ class Translations$home$en {
 	/// en: 'iGPSPORT Account'
 	String get accountSection => 'iGPSPORT Account';
 
-	/// en: 'Registered'
-	String get accountRegistered => 'Registered';
+	/// en: 'Configured'
+	String get accountRegistered => 'Configured';
 
-	/// en: 'Not Registered'
-	String get accountNotRegistered => 'Not Registered';
+	/// en: 'Not Configured'
+	String get accountNotRegistered => 'Not Configured';
 
-	/// en: 'Register Account'
-	String get registerAccount => 'Register Account';
+	/// en: 'Set Up Account'
+	String get registerAccount => 'Set Up Account';
 
 	/// en: 'Edit Account'
 	String get editAccount => 'Edit Account';
@@ -359,7 +359,7 @@ extension on Translations {
 			'common.back' => 'Back',
 			'common.loading' => 'Loading...',
 			'credentials.title' => 'iGPSPORT Account',
-			'credentials.description' => 'Enter your iGPSPORT email and password. Your information is stored securely on this device.',
+			'credentials.description' => 'Enter your iGPSPORT email and password. The information you enter is stored on this device.',
 			'credentials.email' => 'Email',
 			'credentials.emailHint' => 'you@example.com',
 			'credentials.password' => 'Password',
@@ -373,9 +373,9 @@ extension on Translations {
 			'home.title' => 'Home',
 			'home.description' => 'Upload iGPSPORT roadbooks from GPX files, including POIs (Points of Interest).',
 			'home.accountSection' => 'iGPSPORT Account',
-			'home.accountRegistered' => 'Registered',
-			'home.accountNotRegistered' => 'Not Registered',
-			'home.registerAccount' => 'Register Account',
+			'home.accountRegistered' => 'Configured',
+			'home.accountNotRegistered' => 'Not Configured',
+			'home.registerAccount' => 'Set Up Account',
 			'home.editAccount' => 'Edit Account',
 			'home.uploadRoadbook' => 'Upload Roadbook',
 			'home.aboutApp' => 'About App',

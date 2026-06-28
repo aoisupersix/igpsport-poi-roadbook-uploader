@@ -1,17 +1,17 @@
 "key",ja,en
-title,POI種別の対応付け,POI Type Mapping
-description,GPX の POI 種別を iGPSPORT の種別に対応付けます。一致しない種別はデフォルトに割り当てられます。,Map GPX POI types to iGPSPORT types. Unmatched types use the default.
+title,POI種別のマッピング,POI Type Mapping
+description,GPX の POI 種別を iGPSPORT の種別にマッピングします。一致しない種別はデフォルトに割り当てられます。,Map GPX POI types to iGPSPORT types. Unmatched types use the default.
 defaultTypeLabel,未一致時のデフォルト種別,Default type for unmatched
-mappingsLabel,対応付け,Mappings
+mappingsLabel,マッピング,Mappings
 gpxTypeLabel,GPX 種別,GPX type
 igpsportTypeLabel,iGPSPORT 種別,iGPSPORT type
-empty,対応付けがまだありません。,No mappings yet.
-addEntry,対応を追加,Add mapping
-editEntry,対応を編集,Edit mapping
+empty,マッピングがまだありません。,No mappings yet.
+addEntry,マッピングを追加,Add mapping
+editEntry,マッピングを編集,Edit mapping
 delete,削除,Delete
 reset,初期値に戻す,Reset to defaults
 resetConfirmTitle,初期値に戻しますか？,Reset to defaults?
-resetConfirmMessage,すべての対応付けが初期状態に戻ります。この操作は取り消せません。,All mappings will be restored to their defaults. This cannot be undone.
+resetConfirmMessage,すべてのマッピングが初期状態に戻ります。この操作は取り消せません。,All mappings will be restored to their defaults. This cannot be undone.
 cancel,キャンセル,Cancel
 save,保存,Save
 gpxTypeRequired,GPX 種別を入力してください。,Enter a GPX type.
