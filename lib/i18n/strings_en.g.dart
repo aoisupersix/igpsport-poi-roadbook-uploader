@@ -80,8 +80,8 @@ class Translations$common$en {
 
 	// Translations
 
-	/// en: 'iGPSPORT POI Roadbook Uploader'
-	String get appName => 'iGPSPORT POI Roadbook Uploader';
+	/// en: 'iGPSPORT Roadbook Uploader'
+	String get appName => 'iGPSPORT Roadbook Uploader';
 
 	/// en: 'English'
 	String get languageName => 'English';
@@ -265,7 +265,7 @@ extension on Translations {
 			'appInfo.appBuildNumber' => ({required String buildNumber}) => 'Build Number: ${buildNumber}',
 			'appInfo.appDescription' => 'An app for creating and uploading roadbooks with POIs for iGPSPORT cycling computers.',
 			'appInfo.failedToGetPackageInfo' => 'Failed to get package information.',
-			'common.appName' => 'iGPSPORT POI Roadbook Uploader',
+			'common.appName' => 'iGPSPORT Roadbook Uploader',
 			'common.languageName' => 'English',
 			'common.ok' => 'OK',
 			'common.cancel' => 'Cancel',

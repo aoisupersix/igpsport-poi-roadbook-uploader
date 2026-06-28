@@ -66,7 +66,7 @@ class Translations$common$ja implements Translations$common$en {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get appName => 'iGPSPORT POI ロードブックアップローダー';
+	@override String get appName => 'iGPSPORTロードブックアップローダー';
 	@override String get languageName => '日本語';
 	@override String get ok => 'OK';
 	@override String get cancel => 'キャンセル';
@@ -162,7 +162,7 @@ extension on TranslationsJa {
 			'appInfo.appBuildNumber' => ({required String buildNumber}) => 'ビルド番号: ${buildNumber}',
 			'appInfo.appDescription' => 'iGPSPORT サイクルコンピュータ向けに POI を含むロードブックを作成・アップロードするアプリです。',
 			'appInfo.failedToGetPackageInfo' => 'パッケージ情報の取得に失敗しました。',
-			'common.appName' => 'iGPSPORT POI ロードブックアップローダー',
+			'common.appName' => 'iGPSPORTロードブックアップローダー',
 			'common.languageName' => '日本語',
 			'common.ok' => 'OK',
 			'common.cancel' => 'キャンセル',
