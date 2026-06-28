@@ -1,0 +1,4 @@
+root = false
+
+[*.csv]
+end_of_line = crlf

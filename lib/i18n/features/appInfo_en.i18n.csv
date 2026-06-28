@@ -1,0 +1,6 @@
+"key",ja,en
+aboutApp,アプリについて,About App
+appVersion,バージョン: ${version: String},Version: ${version: String}
+appBuildNumber,ビルド番号: ${buildNumber: String},Build Number: ${buildNumber: String}
+appDescription,iGPSPORT サイクルコンピュータ向けに POI を含むロードブックを作成・アップロードするアプリです。,An app for creating and uploading roadbooks with POIs for iGPSPORT cycling computers.
+failedToGetPackageInfo,パッケージ情報の取得に失敗しました。,Failed to get package information.
