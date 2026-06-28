@@ -44,6 +44,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$common$en common = Translations$common$en._(_root);
 	late final Translations$credentials$en credentials = Translations$credentials$en._(_root);
 	late final Translations$home$en home = Translations$home$en._(_root);
+	late final Translations$settings$en settings = Translations$settings$en._(_root);
 	late final Translations$upload$en upload = Translations$upload$en._(_root);
 }
 
@@ -191,6 +192,24 @@ class Translations$home$en {
 	String get aboutApp => 'About App';
 }
 
+// Path: settings
+class Translations$settings$en {
+	Translations$settings$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Settings'
+	String get title => 'Settings';
+
+	/// en: 'Language'
+	String get language => 'Language';
+
+	/// en: 'Follow device setting'
+	String get systemDefault => 'Follow device setting';
+}
+
 // Path: upload
 class Translations$upload$en {
 	Translations$upload$en._(this._root);
@@ -277,6 +296,9 @@ extension on Translations {
 			'home.editAccount' => 'Edit Account',
 			'home.uploadRoadbook' => 'Upload Roadbook',
 			'home.aboutApp' => 'About App',
+			'settings.title' => 'Settings',
+			'settings.language' => 'Language',
+			'settings.systemDefault' => 'Follow device setting',
 			'upload.title' => 'Upload Roadbook',
 			'upload.pickGpxFile' => 'Select GPX file',
 			'upload.roadbookTitle' => 'Roadbook title',

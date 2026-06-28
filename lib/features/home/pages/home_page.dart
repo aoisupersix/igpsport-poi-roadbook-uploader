@@ -19,6 +19,11 @@ class HomePage extends HookConsumerWidget {
         title: Text(t.common.appName),
         actions: [
           IconButton(
+            icon: const Icon(Icons.settings_outlined),
+            tooltip: t.settings.title,
+            onPressed: () => const SettingsRoute().push<void>(context),
+          ),
+          IconButton(
             icon: const Icon(Icons.info_outline),
             tooltip: t.home.aboutApp,
             onPressed: () => const AppInfoRoute().push<void>(context),

@@ -41,6 +41,7 @@ class TranslationsJa with BaseTranslations<AppLocale, Translations> implements T
 	@override late final Translations$common$ja common = Translations$common$ja._(_root);
 	@override late final Translations$credentials$ja credentials = Translations$credentials$ja._(_root);
 	@override late final Translations$home$ja home = Translations$home$ja._(_root);
+	@override late final Translations$settings$ja settings = Translations$settings$ja._(_root);
 	@override late final Translations$upload$ja upload = Translations$upload$ja._(_root);
 }
 
@@ -116,6 +117,18 @@ class Translations$home$ja implements Translations$home$en {
 	@override String get aboutApp => 'アプリについて';
 }
 
+// Path: settings
+class Translations$settings$ja implements Translations$settings$en {
+	Translations$settings$ja._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '設定';
+	@override String get language => '言語';
+	@override String get systemDefault => '端末の設定に従う';
+}
+
 // Path: upload
 class Translations$upload$ja implements Translations$upload$en {
 	Translations$upload$ja._(this._root);
@@ -180,6 +193,9 @@ extension on TranslationsJa {
 			'home.editAccount' => 'アカウントを編集',
 			'home.uploadRoadbook' => 'ロードブックをアップロード',
 			'home.aboutApp' => 'アプリについて',
+			'settings.title' => '設定',
+			'settings.language' => '言語',
+			'settings.systemDefault' => '端末の設定に従う',
 			'upload.title' => 'ロードブックのアップロード',
 			'upload.pickGpxFile' => 'GPX ファイルを選択',
 			'upload.roadbookTitle' => 'ロードブック名',
