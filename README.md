@@ -5,6 +5,19 @@
 A Flutter app for creating and uploading roadbooks containing POIs (Points of
 Interest) for iGPSPORT cycling computers.
 
+## Download
+
+Prebuilt binaries are published on the
+[Releases page](https://github.com/aoisupersix/igpsport-poi-roadbook-uploader/releases/latest).
+Download the asset for your platform and run it.
+
+| Platform | Asset | Notes |
+| --- | --- | --- |
+| Android | `...-android.apk` | Install the APK directly (allow installing from unknown sources). |
+| Windows | `...-windows-x64.zip` | Extract and run the `.exe`. |
+| macOS | `...-macos.zip` | Unzip and move the `.app` to Applications. The build is unsigned (ad-hoc), so on first launch right-click the app and choose **Open**, or allow it from System Settings → Privacy & Security. |
+| Linux | `...-linux-x64.tar.gz` | Extract and run the bundled executable. Requires GTK 3 and libsecret. |
+
 ## How it works
 
 The app signs in to iGPSPORT using HTTP sessions that mimic the browser and the
