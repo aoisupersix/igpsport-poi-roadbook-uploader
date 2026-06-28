@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:igpsport_poi_roadbook_uploader/common/utils/extensions/build_context.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/settings/providers/locale_controller.dart';
 import 'package:igpsport_poi_roadbook_uploader/i18n/strings.g.dart';
+import 'package:igpsport_poi_roadbook_uploader/router/routes.dart';
 
 /// Settings page that lets the user switch the app language.
 class SettingsPage extends HookConsumerWidget {
@@ -38,6 +39,14 @@ class SettingsPage extends HookConsumerWidget {
                 value: locale,
                 title: Text(locale.translations.common.languageName),
               ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.place_outlined),
+              title: Text(t.settings.poiMapping),
+              subtitle: Text(t.settings.poiMappingSubtitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => const PoiMappingRoute().push<void>(context),
+            ),
           ],
         ),
       ),

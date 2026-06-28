@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:igpsport_poi_roadbook_uploader/features/upload/models/igpsport_poi.dart';
+import 'package:igpsport_poi_roadbook_uploader/common/models/igpsport_poi_type.dart';
+import 'package:igpsport_poi_roadbook_uploader/common/models/poi_type_mapping.dart';
+import 'package:igpsport_poi_roadbook_uploader/common/utils/poi_type_mapping_defaults.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/upload/utils/gpx_poi_extractor.dart';
 
 const _gpx = '''
@@ -15,9 +17,11 @@ const _gpx = '''
 ''';
 
 void main() {
+  final resolver = PoiTypeResolver(defaultPoiTypeMapping);
+
   group('extractPoisFromGpxBytes', () {
     test('extracts named waypoints, maps types, and de-duplicates', () {
-      final pois = extractPoisFromGpxBytes(utf8.encode(_gpx));
+      final pois = extractPoisFromGpxBytes(utf8.encode(_gpx), resolver);
 
       // The unnamed trkpt is ignored and the duplicate Summit is removed.
       expect(pois, hasLength(2));
@@ -28,11 +32,51 @@ void main() {
     });
 
     test('returns empty list for invalid GPX', () {
-      expect(extractPoisFromGpxBytes(utf8.encode('not xml')), isEmpty);
+      expect(
+        extractPoisFromGpxBytes(utf8.encode('not xml'), resolver),
+        isEmpty,
+      );
+    });
+  });
+
+  group('PoiTypeResolver', () {
+    test('defaults unknown waypoint types to the mapping default', () {
+      expect(resolver.resolve('something-unknown'), IgpsportPoiType.viaPoint);
     });
 
-    test('defaults unknown waypoint types to ViaPoint', () {
-      expect(mapIgpsportPoiType('something-unknown'), IgpsportPoiType.viaPoint);
+    test('matches GPX types case- and separator-insensitively', () {
+      expect(
+        resolver.resolve('aid-station'),
+        IgpsportPoiType.medicalAidStation,
+      );
+    });
+
+    test('uses the configured default type for unmatched types', () {
+      final custom = PoiTypeResolver(
+        defaultPoiTypeMapping.copyWith(defaultType: IgpsportPoiType.shop),
+      );
+      expect(custom.resolve('totally-unknown'), IgpsportPoiType.shop);
+    });
+  });
+
+  group('PoiTypeMapping JSON', () {
+    test('survives a jsonEncode/decode round trip', () {
+      final mapping = defaultPoiTypeMapping.copyWith(
+        defaultType: IgpsportPoiType.shop,
+        entries: const [
+          PoiTypeMappingEntry(
+            gpxType: 'CUSTOM',
+            igpsportType: IgpsportPoiType.tunnel,
+          ),
+        ],
+      );
+
+      final encoded = jsonEncode(mapping.toJson());
+      final decoded = PoiTypeMapping.fromJson(
+        jsonDecode(encoded) as Map<String, dynamic>,
+      );
+
+      expect(decoded, mapping);
     });
   });
 }

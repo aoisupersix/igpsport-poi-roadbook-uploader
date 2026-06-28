@@ -44,7 +44,7 @@ final class UploadControllerProvider
   }
 }
 
-String _$uploadControllerHash() => r'923b80c48b4bcec057a71019c9c2d68c1e146aca';
+String _$uploadControllerHash() => r'804f7b1f89254b0181f01603ebcbb7253abb322b';
 
 /// Drives a GPX roadbook upload to iGPSPORT and exposes progress as logs.
 

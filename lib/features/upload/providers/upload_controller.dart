@@ -1,4 +1,5 @@
 import 'package:igpsport_poi_roadbook_uploader/common/providers/igpsport_credentials.dart';
+import 'package:igpsport_poi_roadbook_uploader/common/providers/poi_type_mapping_controller.dart';
 import 'package:igpsport_poi_roadbook_uploader/common/utils/logger.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/upload/models/roadbook_privacy.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/upload/models/upload_log_entry.dart';
@@ -44,7 +45,10 @@ class UploadController extends _$UploadController {
     );
 
     try {
-      final pois = extractPoisFromGpxBytes(gpxBytes);
+      final resolver = PoiTypeResolver(
+        ref.read(poiTypeMappingControllerProvider),
+      );
+      final pois = extractPoisFromGpxBytes(gpxBytes, resolver);
       _log(UploadLogLevel.info, 'Extracted ${pois.length} POI(s) from GPX.');
 
       // The upload attempt seeds the session cookies and logs in on demand,
@@ -60,10 +64,7 @@ class UploadController extends _$UploadController {
       _log(UploadLogLevel.info, 'Authenticating service API...');
       await client.serviceLogin();
 
-      _log(
-        UploadLogLevel.info,
-        'Setting visibility to ${privacy.name}...',
-      );
+      _log(UploadLogLevel.info, 'Setting visibility to ${privacy.name}...');
       await client.setPrivacy(roadbookId, title, privacy);
       _log(UploadLogLevel.success, 'Visibility set to ${privacy.name}.');
 

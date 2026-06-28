@@ -4,6 +4,7 @@ import 'package:igpsport_poi_roadbook_uploader/common/components/root_navigation
 import 'package:igpsport_poi_roadbook_uploader/features/app_info/pages/app_info_page.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/credentials/pages/credentials_form_page.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/home/pages/home_page.dart';
+import 'package:igpsport_poi_roadbook_uploader/features/poi_mapping/pages/poi_mapping_page.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/settings/pages/settings_page.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/upload/pages/upload_page.dart';
 
@@ -18,6 +19,7 @@ part 'routes.g.dart';
         TypedGoRoute<AppInfoRoute>(path: 'app_info'),
         TypedGoRoute<UploadRoute>(path: 'upload'),
         TypedGoRoute<SettingsRoute>(path: 'settings'),
+        TypedGoRoute<PoiMappingRoute>(path: 'poi_mapping'),
       ],
     ),
   ],
@@ -78,5 +80,15 @@ class SettingsRoute extends GoRouteData with $SettingsRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const SettingsPage();
+  }
+}
+
+/// POI type mapping page.
+class PoiMappingRoute extends GoRouteData with $PoiMappingRoute {
+  const PoiMappingRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const PoiMappingPage();
   }
 }

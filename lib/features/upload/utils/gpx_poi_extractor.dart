@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:igpsport_poi_roadbook_uploader/common/models/igpsport_poi_type.dart';
+import 'package:igpsport_poi_roadbook_uploader/common/models/poi_type_mapping.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/upload/models/igpsport_poi.dart';
 import 'package:xml/xml.dart';
 
@@ -8,74 +10,37 @@ final _nonAlnum = RegExp('[^A-Z0-9]');
 String _normalizeTypeKey(String value) =>
     value.toUpperCase().replaceAll(_nonAlnum, '');
 
-/// Garmin/GPX waypoint types mapped to iGPSPORT POI types.
-const _gpxTypeMap = <String, IgpsportPoiType>{
-  'GENERAL DISTANCE': IgpsportPoiType.viaPoint,
-  'GENERIC': IgpsportPoiType.viaPoint,
-  'MILE MARKER': IgpsportPoiType.viaPoint,
-  'INFO': IgpsportPoiType.viaPoint,
-  'SERVICE': IgpsportPoiType.servicePoint,
-  'AID STATION': IgpsportPoiType.medicalAidStation,
-  'FIRST AID': IgpsportPoiType.medicalAidStation,
-  'FOOD': IgpsportPoiType.supplyPoint,
-  'WATER': IgpsportPoiType.supplyPoint,
-  'ENERGY GEL': IgpsportPoiType.supplyPoint,
-  'SPORTS DRINK': IgpsportPoiType.supplyPoint,
-  'SPRINT': IgpsportPoiType.sprintPoint,
-  'HORS CATEGORY': IgpsportPoiType.hcLevelClimbing,
-  'FIRST CATEGORY': IgpsportPoiType.oneLevelClimbing,
-  'SECOND CATEGORY': IgpsportPoiType.twoLevelClimbing,
-  'THIRD CATEGORY': IgpsportPoiType.threeLevelClimbing,
-  'FOURTH CATEGORY': IgpsportPoiType.fourLevelClimbing,
-  'TOILET': IgpsportPoiType.waterCloset,
-  'SHOWER': IgpsportPoiType.servicePoint,
-  'GEAR': IgpsportPoiType.equipment,
-  'NAVAID': IgpsportPoiType.viaPoint,
-  'TRANSPORT': IgpsportPoiType.viaPoint,
-  'TRANSITION': IgpsportPoiType.viaPoint,
-  'CHECKPOINT': IgpsportPoiType.viaPoint,
-  'MEETING SPOT': IgpsportPoiType.rallyPoint,
-  'CAMPSITE': IgpsportPoiType.servicePoint,
-  'SHELTER': IgpsportPoiType.servicePoint,
-  'REST AREA': IgpsportPoiType.servicePoint,
-  'RACE OBSTACLE START': IgpsportPoiType.dangerousArea,
-  'RACE OBSTACLE END': IgpsportPoiType.dangerousArea,
-  'SUMMIT': IgpsportPoiType.hcLevelClimbing,
-  'TUNNEL': IgpsportPoiType.tunnel,
-  'BRIDGE': IgpsportPoiType.dangerousArea,
-  'VALLEY': IgpsportPoiType.valley,
-  'OVERLOOK': IgpsportPoiType.observationDeck,
-  'STORE': IgpsportPoiType.shop,
-  'ALERT': IgpsportPoiType.dangerousArea,
-  'DANGER': IgpsportPoiType.dangerousArea,
-  'OBSTACLE': IgpsportPoiType.dangerousArea,
-  'CROSSING': IgpsportPoiType.intersection,
-  'STEEP INCLINE': IgpsportPoiType.steepDescentAhead,
-  'SHARP CURVE': IgpsportPoiType.sharpBend,
-};
+/// Resolves GPX waypoint types to iGPSPORT POI types using a [PoiTypeMapping].
+///
+/// GPX type keys are matched case-insensitively, ignoring non-alphanumeric
+/// characters. Types not covered by an entry fall back to
+/// [PoiTypeMapping.defaultType].
+class PoiTypeResolver {
+  PoiTypeResolver(PoiTypeMapping mapping)
+    : _defaultType = mapping.defaultType,
+      _lookup = {
+        for (final entry in mapping.entries)
+          _normalizeTypeKey(entry.gpxType): entry.igpsportType,
+      };
 
-final _normalizedTypeMap = <String, IgpsportPoiType>{
-  for (final entry in _gpxTypeMap.entries)
-    _normalizeTypeKey(entry.key): entry.value,
-};
+  final Map<String, IgpsportPoiType> _lookup;
+  final IgpsportPoiType _defaultType;
 
-/// Maps a GPX waypoint type to an iGPSPORT POI type, defaulting to ViaPoint.
-IgpsportPoiType mapIgpsportPoiType(String? gpxType) {
-  final norm =
-      (gpxType ?? '').trim().toUpperCase().split(RegExp(r'\s+')).join(' ');
-  final mapped = _normalizedTypeMap[_normalizeTypeKey(norm)];
-  if (mapped != null) return mapped;
-  if (norm == 'GENERIC' || norm == 'WAYPOINT') return IgpsportPoiType.viaPoint;
-  if (norm == 'SUMMIT') return IgpsportPoiType.hcLevelClimbing;
-  return IgpsportPoiType.viaPoint;
+  /// Returns the iGPSPORT type for [gpxType], or the default when unmatched.
+  IgpsportPoiType resolve(String? gpxType) =>
+      _lookup[_normalizeTypeKey(gpxType ?? '')] ?? _defaultType;
 }
 
 /// Extracts POI candidates from GPX bytes.
 ///
 /// Reads `<wpt>` elements (with optional `<type>`) plus any named `<rtept>` /
-/// `<trkpt>` elements, de-duplicating by rounded coordinate and name. Returns
-/// an empty list when the GPX cannot be parsed.
-List<PoiCandidate> extractPoisFromGpxBytes(List<int> gpxBytes) {
+/// `<trkpt>` elements, de-duplicating by rounded coordinate and name. GPX types
+/// are mapped to iGPSPORT types via [resolver]. Returns an empty list when the
+/// GPX cannot be parsed.
+List<PoiCandidate> extractPoisFromGpxBytes(
+  List<int> gpxBytes,
+  PoiTypeResolver resolver,
+) {
   final XmlDocument doc;
   try {
     doc = XmlDocument.parse(utf8.decode(gpxBytes, allowMalformed: true));
@@ -95,7 +60,8 @@ List<PoiCandidate> extractPoisFromGpxBytes(List<int> gpxBytes) {
     if (latitude == null || longitude == null) return;
     var poiName = (name ?? 'POI').trim();
     if (poiName.isEmpty) poiName = 'POI';
-    final key = '${(latitude * 1000000).round()},'
+    final key =
+        '${(latitude * 1000000).round()},'
         '${(longitude * 1000000).round()},$poiName';
     if (!seen.add(key)) return;
     final clipped = poiName.length > 64 ? poiName.substring(0, 64) : poiName;
@@ -104,7 +70,7 @@ List<PoiCandidate> extractPoisFromGpxBytes(List<int> gpxBytes) {
         name: clipped,
         latitude: latitude,
         longitude: longitude,
-        poiType: mapIgpsportPoiType(gpxType),
+        poiType: resolver.resolve(gpxType),
         nameOrigin: clipped,
       ),
     );

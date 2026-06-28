@@ -44,6 +44,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$common$en common = Translations$common$en._(_root);
 	late final Translations$credentials$en credentials = Translations$credentials$en._(_root);
 	late final Translations$home$en home = Translations$home$en._(_root);
+	late final Translations$poiMapping$en poiMapping = Translations$poiMapping$en._(_root);
 	late final Translations$settings$en settings = Translations$settings$en._(_root);
 	late final Translations$upload$en upload = Translations$upload$en._(_root);
 }
@@ -195,6 +196,66 @@ class Translations$home$en {
 	String get aboutApp => 'About App';
 }
 
+// Path: poiMapping
+class Translations$poiMapping$en {
+	Translations$poiMapping$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'POI Type Mapping'
+	String get title => 'POI Type Mapping';
+
+	/// en: 'Map GPX POI types to iGPSPORT types. Unmatched types use the default.'
+	String get description => 'Map GPX POI types to iGPSPORT types. Unmatched types use the default.';
+
+	/// en: 'Default type for unmatched'
+	String get defaultTypeLabel => 'Default type for unmatched';
+
+	/// en: 'Mappings'
+	String get mappingsLabel => 'Mappings';
+
+	/// en: 'GPX type'
+	String get gpxTypeLabel => 'GPX type';
+
+	/// en: 'iGPSPORT type'
+	String get igpsportTypeLabel => 'iGPSPORT type';
+
+	/// en: 'No mappings yet.'
+	String get empty => 'No mappings yet.';
+
+	/// en: 'Add mapping'
+	String get addEntry => 'Add mapping';
+
+	/// en: 'Edit mapping'
+	String get editEntry => 'Edit mapping';
+
+	/// en: 'Delete'
+	String get delete => 'Delete';
+
+	/// en: 'Reset to defaults'
+	String get reset => 'Reset to defaults';
+
+	/// en: 'Reset to defaults?'
+	String get resetConfirmTitle => 'Reset to defaults?';
+
+	/// en: 'All mappings will be restored to their defaults. This cannot be undone.'
+	String get resetConfirmMessage => 'All mappings will be restored to their defaults. This cannot be undone.';
+
+	/// en: 'Cancel'
+	String get cancel => 'Cancel';
+
+	/// en: 'Save'
+	String get save => 'Save';
+
+	/// en: 'Enter a GPX type.'
+	String get gpxTypeRequired => 'Enter a GPX type.';
+
+	/// en: 'This GPX type is already mapped.'
+	String get duplicateError => 'This GPX type is already mapped.';
+}
+
 // Path: settings
 class Translations$settings$en {
 	Translations$settings$en._(this._root);
@@ -211,6 +272,12 @@ class Translations$settings$en {
 
 	/// en: 'Follow device setting'
 	String get systemDefault => 'Follow device setting';
+
+	/// en: 'POI Type Mapping'
+	String get poiMapping => 'POI Type Mapping';
+
+	/// en: 'Configure GPX to iGPSPORT POI type mapping'
+	String get poiMappingSubtitle => 'Configure GPX to iGPSPORT POI type mapping';
 }
 
 // Path: upload
@@ -300,9 +367,28 @@ extension on Translations {
 			'home.editAccount' => 'Edit Account',
 			'home.uploadRoadbook' => 'Upload Roadbook',
 			'home.aboutApp' => 'About App',
+			'poiMapping.title' => 'POI Type Mapping',
+			'poiMapping.description' => 'Map GPX POI types to iGPSPORT types. Unmatched types use the default.',
+			'poiMapping.defaultTypeLabel' => 'Default type for unmatched',
+			'poiMapping.mappingsLabel' => 'Mappings',
+			'poiMapping.gpxTypeLabel' => 'GPX type',
+			'poiMapping.igpsportTypeLabel' => 'iGPSPORT type',
+			'poiMapping.empty' => 'No mappings yet.',
+			'poiMapping.addEntry' => 'Add mapping',
+			'poiMapping.editEntry' => 'Edit mapping',
+			'poiMapping.delete' => 'Delete',
+			'poiMapping.reset' => 'Reset to defaults',
+			'poiMapping.resetConfirmTitle' => 'Reset to defaults?',
+			'poiMapping.resetConfirmMessage' => 'All mappings will be restored to their defaults. This cannot be undone.',
+			'poiMapping.cancel' => 'Cancel',
+			'poiMapping.save' => 'Save',
+			'poiMapping.gpxTypeRequired' => 'Enter a GPX type.',
+			'poiMapping.duplicateError' => 'This GPX type is already mapped.',
 			'settings.title' => 'Settings',
 			'settings.language' => 'Language',
 			'settings.systemDefault' => 'Follow device setting',
+			'settings.poiMapping' => 'POI Type Mapping',
+			'settings.poiMappingSubtitle' => 'Configure GPX to iGPSPORT POI type mapping',
 			'upload.title' => 'Upload Roadbook',
 			'upload.pickGpxFile' => 'Select GPX file',
 			'upload.roadbookTitle' => 'Roadbook title',

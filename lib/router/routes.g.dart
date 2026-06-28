@@ -25,6 +25,10 @@ RouteBase get $rootRoute => ShellRouteData.$route(
           path: 'settings',
           factory: $SettingsRoute._fromState,
         ),
+        GoRouteData.$route(
+          path: 'poi_mapping',
+          factory: $PoiMappingRoute._fromState,
+        ),
       ],
     ),
   ],
@@ -120,6 +124,27 @@ mixin $SettingsRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/settings');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin $PoiMappingRoute on GoRouteData {
+  static PoiMappingRoute _fromState(GoRouterState state) =>
+      const PoiMappingRoute();
+
+  @override
+  String get location => GoRouteData.$location('/poi_mapping');
 
   @override
   void go(BuildContext context) => context.go(location);

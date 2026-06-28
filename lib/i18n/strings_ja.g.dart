@@ -41,6 +41,7 @@ class TranslationsJa with BaseTranslations<AppLocale, Translations> implements T
 	@override late final Translations$common$ja common = Translations$common$ja._(_root);
 	@override late final Translations$credentials$ja credentials = Translations$credentials$ja._(_root);
 	@override late final Translations$home$ja home = Translations$home$ja._(_root);
+	@override late final Translations$poiMapping$ja poiMapping = Translations$poiMapping$ja._(_root);
 	@override late final Translations$settings$ja settings = Translations$settings$ja._(_root);
 	@override late final Translations$upload$ja upload = Translations$upload$ja._(_root);
 }
@@ -118,6 +119,32 @@ class Translations$home$ja implements Translations$home$en {
 	@override String get aboutApp => 'アプリについて';
 }
 
+// Path: poiMapping
+class Translations$poiMapping$ja implements Translations$poiMapping$en {
+	Translations$poiMapping$ja._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'POI種別の対応付け';
+	@override String get description => 'GPX の POI 種別を iGPSPORT の種別に対応付けます。一致しない種別はデフォルトに割り当てられます。';
+	@override String get defaultTypeLabel => '未一致時のデフォルト種別';
+	@override String get mappingsLabel => '対応付け';
+	@override String get gpxTypeLabel => 'GPX 種別';
+	@override String get igpsportTypeLabel => 'iGPSPORT 種別';
+	@override String get empty => '対応付けがまだありません。';
+	@override String get addEntry => '対応を追加';
+	@override String get editEntry => '対応を編集';
+	@override String get delete => '削除';
+	@override String get reset => '初期値に戻す';
+	@override String get resetConfirmTitle => '初期値に戻しますか？';
+	@override String get resetConfirmMessage => 'すべての対応付けが初期状態に戻ります。この操作は取り消せません。';
+	@override String get cancel => 'キャンセル';
+	@override String get save => '保存';
+	@override String get gpxTypeRequired => 'GPX 種別を入力してください。';
+	@override String get duplicateError => 'この GPX 種別は既に登録されています。';
+}
+
 // Path: settings
 class Translations$settings$ja implements Translations$settings$en {
 	Translations$settings$ja._(this._root);
@@ -128,6 +155,8 @@ class Translations$settings$ja implements Translations$settings$en {
 	@override String get title => '設定';
 	@override String get language => '言語';
 	@override String get systemDefault => '端末の設定に従う';
+	@override String get poiMapping => 'POI種別の対応付け';
+	@override String get poiMappingSubtitle => 'GPX と iGPSPORT の POI 種別の対応を設定します';
 }
 
 // Path: upload
@@ -195,9 +224,28 @@ extension on TranslationsJa {
 			'home.editAccount' => 'アカウントを編集',
 			'home.uploadRoadbook' => 'ロードブックをアップロード',
 			'home.aboutApp' => 'アプリについて',
+			'poiMapping.title' => 'POI種別の対応付け',
+			'poiMapping.description' => 'GPX の POI 種別を iGPSPORT の種別に対応付けます。一致しない種別はデフォルトに割り当てられます。',
+			'poiMapping.defaultTypeLabel' => '未一致時のデフォルト種別',
+			'poiMapping.mappingsLabel' => '対応付け',
+			'poiMapping.gpxTypeLabel' => 'GPX 種別',
+			'poiMapping.igpsportTypeLabel' => 'iGPSPORT 種別',
+			'poiMapping.empty' => '対応付けがまだありません。',
+			'poiMapping.addEntry' => '対応を追加',
+			'poiMapping.editEntry' => '対応を編集',
+			'poiMapping.delete' => '削除',
+			'poiMapping.reset' => '初期値に戻す',
+			'poiMapping.resetConfirmTitle' => '初期値に戻しますか？',
+			'poiMapping.resetConfirmMessage' => 'すべての対応付けが初期状態に戻ります。この操作は取り消せません。',
+			'poiMapping.cancel' => 'キャンセル',
+			'poiMapping.save' => '保存',
+			'poiMapping.gpxTypeRequired' => 'GPX 種別を入力してください。',
+			'poiMapping.duplicateError' => 'この GPX 種別は既に登録されています。',
 			'settings.title' => '設定',
 			'settings.language' => '言語',
 			'settings.systemDefault' => '端末の設定に従う',
+			'settings.poiMapping' => 'POI種別の対応付け',
+			'settings.poiMappingSubtitle' => 'GPX と iGPSPORT の POI 種別の対応を設定します',
 			'upload.title' => 'ロードブックのアップロード',
 			'upload.pickGpxFile' => 'GPX ファイルを選択',
 			'upload.roadbookTitle' => 'ロードブック名',

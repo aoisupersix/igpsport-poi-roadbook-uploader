@@ -2,3 +2,5 @@
 title,設定,Settings
 language,言語,Language
 systemDefault,端末の設定に従う,Follow device setting
+poiMapping,POI種別の対応付け,POI Type Mapping
+poiMappingSubtitle,GPX と iGPSPORT の POI 種別の対応を設定します,Configure GPX to iGPSPORT POI type mapping

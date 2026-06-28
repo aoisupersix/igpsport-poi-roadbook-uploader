@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:igpsport_poi_roadbook_uploader/common/providers/igpsport_credentials.dart';
+import 'package:igpsport_poi_roadbook_uploader/common/providers/poi_type_mapping_controller.dart';
+import 'package:igpsport_poi_roadbook_uploader/common/utils/poi_type_mapping_defaults.dart';
 import 'package:igpsport_poi_roadbook_uploader/common/utils/preferences_service.dart';
 import 'package:igpsport_poi_roadbook_uploader/common/utils/secure_storage_service.dart';
 import 'package:igpsport_poi_roadbook_uploader/features/settings/providers/locale_controller.dart';
@@ -23,6 +25,10 @@ Future<void> main() async {
     await LocaleSettings.useDeviceLocale();
   }
 
+  // Load the saved POI type mapping, falling back to the built-in default.
+  final savedPoiTypeMapping =
+      await PreferencesService().getPoiTypeMapping() ?? defaultPoiTypeMapping;
+
   runApp(
     ProviderScope(
       overrides: [
@@ -31,6 +37,9 @@ Future<void> main() async {
         ),
         localeControllerProvider.overrideWith(
           () => LocaleController.fromModel(savedLocale),
+        ),
+        poiTypeMappingControllerProvider.overrideWith(
+          () => PoiTypeMappingController.fromModel(savedPoiTypeMapping),
         ),
       ],
       child: TranslationProvider(child: const App()),
