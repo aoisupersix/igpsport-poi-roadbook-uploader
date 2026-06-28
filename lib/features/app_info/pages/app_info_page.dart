@@ -21,21 +21,24 @@ class AppInfoPage extends HookConsumerWidget {
           const Center(child: CircularProgressIndicator()),
         AsyncSnapshot(hasError: true) =>
           Center(child: Text(t.appInfo.failedToGetPackageInfo)),
-        AsyncSnapshot(data: final info?) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
-            child: Column(
-              spacing: 8,
-              children: [
-                Text(
-                  info.appName,
-                  style: Theme.of(context).textTheme.headlineMedium,
-                  textAlign: TextAlign.center,
-                ),
-                Text(t.appInfo.appVersion(version: info.version)),
-                Text(t.appInfo.appBuildNumber(buildNumber: info.buildNumber)),
-                const SizedBox(height: 16),
-                Text(t.appInfo.appDescription, textAlign: TextAlign.center),
-              ],
+        AsyncSnapshot(data: final info?) => Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                spacing: 8,
+                children: [
+                  Text(
+                    info.appName,
+                    style: Theme.of(context).textTheme.headlineMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(t.appInfo.appVersion(version: info.version)),
+                  Text(t.appInfo.appBuildNumber(buildNumber: info.buildNumber)),
+                  const SizedBox(height: 16),
+                  Text(t.appInfo.appDescription, textAlign: TextAlign.center),
+                ],
+              ),
             ),
           ),
         _ => const SizedBox.shrink(),
